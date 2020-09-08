@@ -139,6 +139,8 @@ class WAFW00F(waftoolsengine):
             # Checking for the Server header after sending malicious requests
             response = self.attackres
             normalserver = resp1.headers.get('Server')
+            if response.headers is not None:
+                attackresponse_server = response.headers.get('Server')
             attackresponse_server = response.headers.get('Server')
             if attackresponse_server:
                 if attackresponse_server != normalserver:
